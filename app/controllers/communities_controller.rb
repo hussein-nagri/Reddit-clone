@@ -10,7 +10,8 @@ class CommunitiesController < ApplicationController
   end
 
   def show
-    @posts = @community.posts
+    # @posts = @community.posts
+      @posts = Post.where("community_id = " + params[:id])
   end 
 
   def new
