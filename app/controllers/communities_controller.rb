@@ -10,8 +10,8 @@ class CommunitiesController < ApplicationController
   end
 
   def show
-    
-  end
+    @posts = @community.posts
+  end 
 
   def new
     @community = Community.new

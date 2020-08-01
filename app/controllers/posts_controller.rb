@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    
   end
 
   def new
@@ -29,7 +28,7 @@ class PostsController < ApplicationController
   end
 
   private
-  def set_community
+  def set_post
     @post = Post.find(params[:id])
   end
   
