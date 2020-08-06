@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   #This file is for routes (resources generates all routes)
 
-  get "u/:username" => "public#index", as: :profile
+  get "u/:username" => "public#profile", as: :profile
 
   resources :communities do
     resources :posts
