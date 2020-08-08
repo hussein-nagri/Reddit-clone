@@ -2,8 +2,13 @@
 
 <h3><%= @community.name %> </h3>
 
-<%= render partial: "posts/list", locals: {posts: @posts } %>
-
-<small> 
-  <%= simple_format @community.rules %>
-</small>
+<div class="row">
+  <div class="col-sm-8">
+    <%= render partial: "posts/list", locals: {posts: @posts } %>
+  </div>
+  <div class="col-sm-4">
+    <small> 
+      <%= simple_format @community.rules %>
+    </small>
+  </div>
+</div>
