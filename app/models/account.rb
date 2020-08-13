@@ -5,6 +5,7 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posts
+  has_many :comments
   has_many :communities, through: :subscriptions
 
   validates_presence_of :first_name, :last_name, :username
