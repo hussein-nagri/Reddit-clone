@@ -8,22 +8,31 @@ class VotesController < ApplicationController
     #check if vote exists for the user
     existing_vote = Vote.where(account_id: current_account.id, post_id: post_id)
 
-    if existing_vote.size > 0
-      #destroy existing vote
-      existing_vote.first.destroy
-    else 
-      #save new vote
-      if vote.save
-        @success = true
-      else 
-        @success = false
-      end
+    respond_to do |format|
+      format.js {
+        if existing_vote.size > 0
+          #destroy existing vote
+          existing_vote.first.destroy
+        else 
+          #save new vote
+          if vote.save
+            @success = true
+          else 
+            @success = false
+          end
 
-      @post = Post.find(post_id)
-      @total_upvotes = @post.upvotes
-      @total_downvotes = @post.downvotes
+          @post = Post.find(post_id)
+          @total_upvotes = @post.upvotes
+          @total_downvotes = @post.downvotes
+        end
+        render "votes/create"
+      }
     end
-    render "votes/create"
+  end
+
+  private
+  def vote_params
+    params.require(:vote).permit(:upvote, :post_id)
   end
 
 
