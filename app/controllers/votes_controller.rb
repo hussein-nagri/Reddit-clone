@@ -2,7 +2,7 @@ class VotesController < ApplicationController
 
   def create
     post_id = params[:post_id]
-    
+
     vote = Vote.new
     vote.post_id = params[:post_id]
     vote.upvote = params[:upvote]
@@ -23,11 +23,9 @@ class VotesController < ApplicationController
           else 
             @success = false
           end
-
-          @post = Post.find(post_id)
-          @total_upvotes = @post.upvotes
-          @total_downvotes = @post.downvotes
         end
+        
+        @post = Post.find(post_id)
         render "votes/create"
       }
     end
