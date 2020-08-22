@@ -10,7 +10,8 @@ class VotesController < ApplicationController
 
     #check if vote exists for the user
     existing_vote = Vote.where(account_id: current_account.id, post_id: post_id)
-
+    @new_vote = existing_vote.size < 1
+    
     respond_to do |format|
       format.js {
         if existing_vote.size > 0
@@ -26,6 +27,7 @@ class VotesController < ApplicationController
         end
         
         @post = Post.find(post_id)
+        @is_upvote = params[:upvote]
         render "votes/create"
       }
     end
