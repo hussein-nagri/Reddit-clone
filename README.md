@@ -1,24 +1,26 @@
-# README
+# Reddit-clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project Outline
 
-Things you may want to cover:
+This project is a clone of the reddit web application. These are the supported features:
 
-* Ruby version
+- Users can create/join communities
+- Users can create posts within communities to discuss any relevant topics
+- Users can add comments on posts
+- Users can upvote or downvote posts
 
-* System dependencies
+## Endpoints
 
-* Configuration
+- `GET /u/:username` for seeing personal profile
+- `GET /communties/` for getting list of communities
+- `POST /communties/` creating a community
+- `GET /communties/posts` for obtaining posts within communities
+- `POST /communties/posts` add a post to a community
+- `POST /comments/` add a comment to a post
+- `POST /post/vote/` upvote/downvoting posts
 
-* Database creation
+## Next Steps and Improvements
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Add unit tests and integreation tests to ensure 100% code coverage
+- Containerize this server with Docker and host to allow for a reliable CI/CD pipeline
+- Package up and deploy Frontend + Backend using heroku/netlify
